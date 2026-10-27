@@ -71,5 +71,10 @@ class Ledger {
         Serial.println("  " + String(collectedData[i][0]) + "  |  " + String(collectedData[i][1]) + "  |  " + String(collectedData[i][2]) + "  |  " + String(i * collectionDelay));
       }
       Serial.println();
+      Serial.println();
+      Serial.println("--------------------------------------------------------------------------------");
+      Serial.println();
+      Serial.println();
+      Serial.println();
     }
 };
