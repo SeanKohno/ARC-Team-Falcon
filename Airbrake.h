@@ -11,11 +11,11 @@ class Airbrake {
     float duration = 0.1; //Set to the time that an airbrake completes a full cycle
     int servoDelay = 1000; // how long it takes to rotate the servo a standardRotation degrees
 
-    Servo* airbrakeServo;
+    Servo airbrakeServo;
 
 
   public:
-    Airbrake(float rotation, Servo* servo){
+    Airbrake(float rotation, Servo servo){
       airbrakeServo = servo;
       standardRotation = rotation;
       airbrakeServo.write(-180); // zero the servo
