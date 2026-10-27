@@ -26,7 +26,7 @@ Ledger records data from throughout the flight. Upon landing, the entirety of th
 
 Airbrake controls the actuation of airbrakes used to lower the velocity of the rocket. There are NO active guidance systems.
   - Constructor:
-      - Airbrake(float rotation) where rotation is the standard rotation value of servo deployment
+      - Airbrake(float rotation, Servo servo) where rotation is the standard rotation value of servo deployment, and servo is the airbrakeServo.
   - Methods:
       - int deploy(Ledger ledger, float remainingTime) calculates and deploys airbrakes and calls addChange(float change) to add the change data to the ledger.
       - void deploy(float delay) deploys the airbrake for the delay time
