@@ -15,7 +15,7 @@ The current main version is ARC_Version1.ino
   There are two associated header files, Airbrake.h and Ledger.h
   Both Airbrake and Ledger are instantialized once in main. 
 
-Airbrake controls the actuation of airbrakes used to lower the velocity of the rocket. There are NO active guidance systems.
+Ledger records data from throughout the flight. Upon landing, the entirety of the data will be printed to the Serial monitor once every 30 seconds.
   - Constructor:
       - Ledger(int rate, int flightCounter) where rate is the hz collections of data after coast phase starts, and flightCounter is number of data collections after launch.
   - Methods: 
@@ -24,9 +24,9 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
       - void addData(float a, float o, float b) adds the accelerometer, gyroscope, and barometer data to the first available index on the ledger.
       - void data(float startCoast, float launch, float boot, float collectionDelay) prints the data to the serial monitor
 
-Ledger records data from throughout the flight. Upon landing, the entirety of the data will be printed to the Serial monitor once every 30 seconds.
+Airbrake controls the actuation of airbrakes used to lower the velocity of the rocket. There are NO active guidance systems.
   - Constructor:
-      - Default constructor used.
+      - Airbrake(float rotation) where rotation is the standard rotation value of servo deployment
   - Methods:
       - int deploy(Ledger ledger, float remainingTime) calculates and deploys airbrakes and calls addChange(float change) to add the change data to the ledger.
       - void deploy(float delay) deploys the airbrake for the delay time
@@ -34,4 +34,6 @@ Ledger records data from throughout the flight. Upon landing, the entirety of th
 
 ---
 
-Given the absence of known packages that will be used to collect data from sensors and control servos, the values that would otherwise be collected by sensors are left as constants.
+Packages & Libraries Used: <Servo.h>
+
+Given the absence of further known packages that will be used to collect data from sensors and control servos, the values that would otherwise be collected by sensors are left as constants.
