@@ -16,7 +16,7 @@ float v = 0; // velocity current - at prev acceleration
 
 float timeToBurnout = 0;
 float bootTime;
-float coastTime = 8; //delay before shoot deployment
+float coastTime = 8; //delay before chute deployment
 float startingAltitude;
 float startCoast = 0;
 float launchTime = 0;
