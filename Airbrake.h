@@ -1,3 +1,5 @@
+#include <Servo.h>
+
 class Airbrake {
   private:
     float velocity = 0;
