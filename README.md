@@ -31,3 +31,7 @@ Ledger records data from throughout the flight. Upon landing, the entirety of th
       - int deploy(Ledger ledger, float remainingTime) calculates and deploys airbrakes and calls addChange(float change) to add the change data to the ledger.
       - void deploy(float delay) deploys the airbrake for the delay time
       - void retract() retracts the airbrake. Uses servoDelay field variable.
+
+---
+
+Given the absence of known packages that will be used to collect data from sensors and control servos, the values that would otherwise be collected by sensors are left as constants.
