@@ -5,6 +5,7 @@
 Ledger* ledger;
 Airbrake* airbrake;
 
+float standardRotation = 5; //degrees of regular servo rotation
 int collectionRate = 1000; // number of coast-phase change collections
 int duration = 1000; // number of data collections after launch
 
@@ -15,7 +16,7 @@ boolean landed = false;
 float a = 0; // acceleration current
 float v = 0; // velocity current - at prev acceleration
 
-float timeToBurnout = 0;
+float timeToBurnout = 0; //running
 float bootTime;
 float coastTime = 8; //delay before chute deployment
 float startingAltitude;
@@ -29,7 +30,7 @@ void setup() {
     Attach IMU pins, Attach barometer pins
   */
   ledger = new Ledger(collectionRate, duration);
-  airbrake = new Airbrake;
+  airbrake = new Airbrake(standardRotation);
   bootTime = millis();
   //startingAltitude = barometricReadingAltitude;
 }
