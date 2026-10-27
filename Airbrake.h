@@ -15,14 +15,14 @@ class Airbrake {
     int deploy(Ledger ledger, float remainingTime) {
       float change = ledger.getRecentChange();
       if (velocity - change > target && (remainingTime / duration) * change < target){
-        deploy();
+        deploy(servoDelay); //adjust later for more precise airbrake control
         retract();
       }
     }
 
   //Carries out the rotation of servo. requires package
-    void deploy(){
-      delay(servoDelay);
+    void deploy(float delay){
+      delay(delay);
       //deploy
     }
 
