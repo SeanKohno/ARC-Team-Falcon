@@ -44,6 +44,4 @@ class Airbrake {
       delay(servoDelay);
     }
   
-  //default constructor usage
-  
 };
