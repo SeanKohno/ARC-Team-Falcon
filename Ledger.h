@@ -18,7 +18,7 @@ class Ledger {
       collectedData = new float[flightCounter][3]; // 1, acceleration - 2, orientation - 3, barometer
     }
 
-    int getRecentChange(){
+    float getRecentChange(){
       return recentChange;
     }
 
