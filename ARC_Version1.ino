@@ -1,3 +1,5 @@
+//Servo is attached to pin 0
+
 #include "Ledger.h"
 #include "Airbrake.h"
 #include <Servo.h>
@@ -27,7 +29,7 @@ float collectionDelay = 100; //how many milliseconds between each collection
 void setup() {
 
   Servo airbrakeServo;
-  
+  airbrakeServo.attach(0); //ataches Servo to pin 0
   airbrake = new Airbrake(standardRotation, airbrakeServo);
   
   /*
