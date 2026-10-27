@@ -37,3 +37,8 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
 Packages & Libraries Used: <Servo.h>
 
 Given the absence of further known packages that will be used to collect data from sensors and control servos, the values that would otherwise be collected by sensors are left as constants.
+
+---
+
+Hardcoded pin attachment is as followed, and designed for the Raspberry Pi Pico:
+  - airbrakeServo: GPIO0
