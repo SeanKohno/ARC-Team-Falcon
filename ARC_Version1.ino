@@ -25,12 +25,15 @@ float launchTime = 0;
 float collectionDelay = 100; //how many milliseconds between each collection
 
 void setup() {
+
+  Servo airbrakeServo;
+  
+  airbrake = new Airbrake(standardRotation, airbrakeServo);
   
   /*
     Attach IMU pins, Attach barometer pins
   */
   ledger = new Ledger(collectionRate, duration);
-  airbrake = new Airbrake(standardRotation);
   bootTime = millis();
   //startingAltitude = barometricReadingAltitude;
 }
