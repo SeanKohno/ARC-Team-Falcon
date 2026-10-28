@@ -23,7 +23,7 @@ class Airbrake {
       standardRotation = rotation;
 
       //ensures Servo is properly zeroed
-      retract(standardRoation);
+      retract(standardRotation);
       retract(standardRotation);
       retract(standardRotation);
     }
