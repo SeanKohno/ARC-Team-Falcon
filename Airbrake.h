@@ -8,6 +8,8 @@ class Airbrake {
     float previous = 0;
     float change;
     float standardRotation;
+
+    //assign near launch day---------------------------------------
     float target = 243.84; //meters
     float duration = 0.1; //Set to the time that an airbrake completes a full cycle
     int servoDelay = 1000; // how long it takes to rotate the servo a standardRotation degrees
@@ -19,7 +21,11 @@ class Airbrake {
     Airbrake(float rotation, Servo servo){
       airbrakeServo = servo;
       standardRotation = rotation;
-      airbrakeServo.write(-180); // zero the servo
+
+      //ensures Servo is properly zeroed
+      retract(standardRoation);
+      retract(standardRotation);
+      retract(standardRotation);
     }
 
 
