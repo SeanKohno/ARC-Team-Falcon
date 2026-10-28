@@ -65,6 +65,6 @@ boolean coastPhase(){
   while (millis() - timeBurnout < coastTime) {
     ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast));
   }
-  airbrake->deploy();
+  airbrake->deploy(standardDelay, standardRotation);
   return false;
 }
