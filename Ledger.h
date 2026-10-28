@@ -13,18 +13,18 @@ class Ledger {
     Ledger(int rate, int flightCounter) {
       collectionRate = rate;
       duration = flightCounter;
-      airbrakeChanges = new float[coast/collectionRate];
+      airbrakeChanges = new float[coast * collectionRate];
       collectedData = new float[flightCounter][3]; // 1, acceleration - 2, orientation - 3, barometer
     }
 
     float getRecentChange(){
-      if (changeIndex > 0 && changeIndex < coast/collectionRate) return airbrakeChanges[changeIndex - 1];
+      if (changeIndex > 0 && changeIndex < coast * collectionRate) return airbrakeChanges[changeIndex - 1];
       Serial.println("Either changeIndex = 0 or exceeds length of airbrakeChanges in getRecentChange");
       return 0;
     }
 
     void addChange(float change) {
-      if (changeIndex < coast/collectionRate) {
+      if (changeIndex < coast * collectionRate) {
         airbrakeChanges[changeIndex] = change;
         changeIndex++;
       }  else  {
