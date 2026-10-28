@@ -40,9 +40,7 @@ class Ledger {
     }
   
     void data(float startCoast, float launch, float boot, float collectionDelay){
-      //introduction
-      Serial.begin(9600);
-      
+      //introduction      
       Serial.println("ARC Team Falcon");
       Serial.println("System booted at " + String(boot));
       Serial.println("Launch at " + String(launch));
@@ -79,7 +77,5 @@ class Ledger {
       Serial.println();
       Serial.println();
       Serial.println();
-      
-      Serial.end();
     }
 };
