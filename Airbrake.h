@@ -35,6 +35,7 @@ class Airbrake {
         deploy(servoDelay, standardRotation); //adjust later for more precise airbrake control
         retract(standardRotation);
       }
+      return 0; //update once sensors can collect change to store change
     }
 
   //Carries out the rotation of servo. requires package
