@@ -6,6 +6,7 @@ class Airbrake {
     float altitude = 0;
     float heading = 0;
     float previous = 0;
+    float change;
     float standardRotation;
     float target = 243.84; //meters
     float duration = 0.1; //Set to the time that an airbrake completes a full cycle
@@ -21,10 +22,9 @@ class Airbrake {
       airbrakeServo.write(-180); // zero the servo
     }
 
-    float change;
 
     int deploy(Ledger ledger, float remainingTime) {
-      float change = ledger.getRecentChange();
+      change = ledger.getRecentChange();
       if (velocity - change > target && (remainingTime / duration) * change < target){
         deploy(servoDelay, standardRotation); //adjust later for more precise airbrake control
         retract(standardRotation);
