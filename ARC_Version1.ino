@@ -7,9 +7,12 @@
 Ledger* ledger;
 Airbrake* airbrake;
 
+//Variables to assign closer to launch-day -------------------------------------
 float standardRotation = 5; //degrees of regular servo rotation
 int collectionRate = 1000; // number of coast-phase change collections
 int duration = 1000; // number of data collections after launch
+float collectionDelay = 100; //how many milliseconds between each collection that will be recorded
+float coastTime = 8; //delay before chute deployment
 
 boolean launched = false;
 boolean burnout = false;
@@ -20,11 +23,9 @@ float v = 0; // velocity current - at prev acceleration
 
 float timeToBurnout = 0; //running
 float bootTime;
-float coastTime = 8; //delay before chute deployment
 float startingAltitude;
 float startCoast = 0;
 float launchTime = 0;
-float collectionDelay = 100; //how many milliseconds between each collection that will be recorded
 
 void setup() {
 
