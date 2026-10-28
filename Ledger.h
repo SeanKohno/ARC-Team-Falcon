@@ -5,7 +5,6 @@ class Ledger {
     float (*collectedData)[3];
     int changeIndex = 0;
     int coast = 8; //delay
-    float recentChange = -1;
     int duration; //number of collections recorded accross the flight. leaves open to erase if incorrectly assigned
     int dataIndex = 0;
 
@@ -19,7 +18,8 @@ class Ledger {
     }
 
     float getRecentChange(){
-      return recentChange;
+      if (changeIndex > 0) return airbrakeChanges[changeIndex - 1];
+      return 0;
     }
 
     void addChange(float change) {
