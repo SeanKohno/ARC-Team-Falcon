@@ -1,4 +1,4 @@
-#include <Servo.h>
+#include <Servo.h> //assumes a 360 degree servo
 
 class Airbrake {
   private:
@@ -33,15 +33,16 @@ class Airbrake {
 
   //Carries out the rotation of servo. requires package
     void deploy(float delay, float rotation){
-      airbrakeServo.write(standardRotation);
+      airbrakeServo.write(90 + rotation);
       delay(delay);
-      //deploy
+      airbrakeServo.write(90); //stops the servo
     }
 
     //carries out return of airbrake to chasis
     void retract(float rotation) {
-      airbrakeServo.write(-standardRotation); 
+      airbrakeServo.write(90 - standardRotation); 
       delay(servoDelay);
+      airbrakeServo.write(90); //stops the servo
     }
   
 };
