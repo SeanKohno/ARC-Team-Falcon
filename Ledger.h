@@ -26,6 +26,8 @@ class Ledger {
       if (changeIndex < coast/collectionRate) {
         airbrakeChanges[changeIndex] = change;
         changeIndex++;
+      }  else  {
+        Serial.println("addChange index exceeded at: " + millis());
       }
     }
 
