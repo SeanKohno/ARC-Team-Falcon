@@ -56,7 +56,7 @@ void loop() {
 
   if (landed){
     delay(30000); //wait 30 seconds to not overflow monitor
-    ledger->data(bootTime - startCoast, bootTime - launchTime, bootTime, collectionDelay);
+    ledger->data(startCoast - bootTime, blaunchTime - bootTime, bootTime, collectionDelay);
   }
 }
 
