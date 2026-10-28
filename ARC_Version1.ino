@@ -8,7 +8,7 @@ Ledger* ledger;
 Airbrake* airbrake;
 
 //Variables to assign closer to launch-day -------------------------------------
-float standardRotation = 5; //degrees of regular servo rotation
+float standardRotation = 5; //degrees of regular servo rotation while opening. adjust positive/negative to associated vector
 int collectionRate = 1000; // number of coast-phase change collections
 int duration = 1000; // number of data collections after launch
 float collectionDelay = 100; //how many milliseconds between each collection that will be recorded
