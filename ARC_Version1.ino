@@ -24,7 +24,7 @@ float coastTime = 8; //delay before chute deployment
 float startingAltitude;
 float startCoast = 0;
 float launchTime = 0;
-float collectionDelay = 100; //how many milliseconds between each collection
+float collectionDelay = 100; //how many milliseconds between each collection that will be recorded
 
 void setup() {
 
