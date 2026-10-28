@@ -39,9 +39,10 @@ class Airbrake {
     }
 
   //Carries out the rotation of servo. requires package
-    void deploy(float delay, float rotation){
+//cannot be delay, must be dela per global function
+    void deploy(float dela, float rotation){
       airbrakeServo.write(90 + rotation);
-      delay(delay);
+      delay(dela);
       airbrakeServo.write(90); //stops the servo
     }
 
