@@ -29,7 +29,7 @@ float launchTime = 0;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("ARC Team Falcon, system booting");
+  Serial.println("ARC Team Falcon, system booting;");
 
   Servo airbrakeServo;
   airbrakeServo.attach(0); //ataches Servo to pin 0
@@ -41,7 +41,7 @@ void setup() {
   ledger = new Ledger(collectionRate, duration);
   bootTime = millis();
   //startingAltitude = barometricReadingAltitude;
-  Serial.println("  System boot complete");
+  Serial.println("  System boot complete.");
 }
 
 void loop() {
