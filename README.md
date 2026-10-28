@@ -41,4 +41,4 @@ Given the absence of further known packages that will be used to collect data fr
 ---
 
 Hardcoded pin attachment is as followed, and designed for the Raspberry Pi Pico:
-  - airbrakeServo: GPIO0
+  - airbrakeServo: GPIO0 | The package used for the Servo assumes a 360 degree continuous rotation Servo
