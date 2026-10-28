@@ -28,7 +28,7 @@ class Ledger {
         airbrakeChanges[changeIndex] = change;
         changeIndex++;
       }  else  {
-        Serial.println("addChange index exceeded at: " + millis());
+        Serial.println("addChange index exceeded at: " + String(millis()));
       }
     }
 
