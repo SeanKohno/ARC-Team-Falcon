@@ -28,6 +28,7 @@ float startCoast = 0;
 float launchTime = 0;
 
 void setup() {
+  Serial.begin(9600);
 
   Servo airbrakeServo;
   airbrakeServo.attach(0); //ataches Servo to pin 0
