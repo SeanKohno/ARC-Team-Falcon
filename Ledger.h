@@ -30,11 +30,13 @@ class Ledger {
     }
 
     void addData(float a, float o, float b){
-      collectedData[dataIndex][0] = a;
-      collectedData[dataIndex][1] = o;
-      collectedData[dataIndex][2] = b;
+      if (dataIndex < duration) {
+        collectedData[dataIndex][0] = a;
+        collectedData[dataIndex][1] = o;
+        collectedData[dataIndex][2] = b;
 
-      dataIndex ++;
+        dataIndex ++;
+      }
     }
   
     void data(float startCoast, float launch, float boot, float collectionDelay){
