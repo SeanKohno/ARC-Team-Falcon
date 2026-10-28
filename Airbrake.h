@@ -16,6 +16,14 @@ class Airbrake {
 
     Servo airbrakeServo;
 
+    //method for assigning actions within stalled while loops
+    void stall(unsigned long wait){
+      unsigned long startingTime = millis();
+      
+      while (millis() < wait + startingTime){
+          //insert data collections here at interval
+      }
+    }
 
   public:
     Airbrake(float rotation, Servo servo){
@@ -39,17 +47,16 @@ class Airbrake {
     }
 
   //Carries out the rotation of servo. requires package
-//cannot be delay, must be dela per global function
-    void deploy(float dela, float rotation){
+    void deploy(float delay, float rotation){
       airbrakeServo.write(90 + rotation);
-      delay(dela);
+      stall(delay);
       airbrakeServo.write(90); //stops the servo
     }
 
     //carries out return of airbrake to chasis
     void retract(float rotation) {
       airbrakeServo.write(90 - standardRotation); 
-      delay(servoDelay);
+      stall(servoDelay);
       airbrakeServo.write(90); //stops the servo
     }
   
