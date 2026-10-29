@@ -12,8 +12,8 @@ This program is designed for amateur rocketry in unrestricted levels (pre class 
 ---
 
 The current main version is ARC_Version1.ino
-  There are two associated header files, Airbrake.h and Ledger.h
-  Both Airbrake and Ledger are instantialized once in main. 
+  There are three associated header files, Airbrake.h, Ledger.h, and DataCollection.h
+  Airbrake, Ledger, and Collector are instantialized once in main. 
 
 Ledger records data from throughout the flight. Upon landing, the entirety of the data will be printed to the Serial monitor once every 30 seconds.
   - Constructor:
@@ -31,6 +31,8 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
       - int deploy(Ledger ledger, float remainingTime) calculates and deploys airbrakes and calls addChange(float change) to add the change data to the ledger.
       - void deploy(float delay) deploys the airbrake for the delay time
       - void retract() retracts the airbrake. Uses servoDelay field variable.
+  DataCollection relays data to the Ledger, and maintains collection during delays.
+  - under construction
 
 ---
 
