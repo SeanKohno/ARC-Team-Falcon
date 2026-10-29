@@ -31,6 +31,7 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
       - int deploy(Ledger ledger, float remainingTime) calculates and deploys airbrakes and calls addChange(float change) to add the change data to the ledger.
       - void deploy(float delay) deploys the airbrake for the delay time
       - void retract() retracts the airbrake. Uses servoDelay field variable.
+        
   DataCollection relays data to the Ledger, and maintains collection during delays.
   - under construction
 
