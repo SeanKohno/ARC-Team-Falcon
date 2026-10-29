@@ -60,14 +60,14 @@ void loop() {
 
   if (landed){
     delay(30000); //wait 30 seconds to not overflow monitor
-    ledger->data(startCoast - bootTime, blaunchTime - bootTime, bootTime, collectionDelay);
+    ledger->data(startCoast - bootTime, launchTime - bootTime, bootTime, collectionDelay);
   }
 }
 
 boolean coastPhase(){
   float timeBurnout = millis();
   while (millis() - timeBurnout < coastTime) {
-    ledger->addChange(airbrake->deploy(ledger&, coastTime - millis() + startCoast));
+    ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast));
   }
   airbrake->deploy(10000, standardRotation); //final extension
   return false;

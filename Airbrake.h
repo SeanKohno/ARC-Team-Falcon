@@ -25,6 +25,7 @@ class Airbrake {
       retract(standardRotation);
       retract(standardRotation);
       retract(standardRotation);
+      Serial.println("Airbrake Instantialized");
     }
 
 
@@ -34,6 +35,7 @@ class Airbrake {
         deploy(servoDelay, standardRotation); //adjust later for more precise airbrake control
         retract(standardRotation);
       }
+      Serial.println("Airbrake deployment change of " + String(0)); //update once sensors can collect change to store change
       return 0; //update once sensors can collect change to store change
     }
 
@@ -42,6 +44,7 @@ class Airbrake {
       airbrakeServo.write(90 + rotation);
       collector->stall(delay);
       airbrakeServo.write(90); //stops the servo
+      Serial.println("Airbrake Deployment Method Complete");
     }
 
     //carries out return of airbrake to chasis
@@ -49,6 +52,7 @@ class Airbrake {
       airbrakeServo.write(90 - standardRotation); 
       collector->stall(servoDelay);
       airbrakeServo.write(90); //stops the servo
+      Serial.println("Airbrake Retraction Method Complete");
     }
   
 };

@@ -4,7 +4,7 @@ class DataCollection {
         float stallInterval; 
 
         int callLedger(){
-            
+            Serial.println("Collector calls Ledger");
         }
 
     public:

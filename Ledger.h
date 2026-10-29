@@ -20,7 +20,7 @@ class Ledger {
     float getRecentChange(){
       if (changeIndex > 0 && changeIndex < coast * collectionRate) return airbrakeChanges[changeIndex - 1];
       Serial.println("Either changeIndex = 0 or exceeds length of airbrakeChanges in getRecentChange");
-      return 0;
+      return aibrakeChanges[changeIndex - 1];
     }
 
     void addChange(float change) {
