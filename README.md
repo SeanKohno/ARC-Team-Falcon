@@ -1,9 +1,10 @@
 # ARC-Team-Falcon
-Avionic systems for the American Rocketry Challenge Team Falcon at Yorktown High School, Arlington Virginia.
+Avionic systems for the American Rocketry Challenge, Team Falcon.
 
 Currently, this repository is set to public. 
 HOWEVER, that is subject to change. 
 The current provisions are for ease of collaboration in an academic setting. 
+As this is an academic project, no AI is used in the creation of the codebase.
 NO Technical implementation details are accessible in the public version. 
 
 This repository hosts the avionics for the upcoming ARC Challenge in 2027 as a High-School competition. 
