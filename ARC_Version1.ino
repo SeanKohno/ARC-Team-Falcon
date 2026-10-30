@@ -2,12 +2,13 @@
 
 #include "Ledger.h"
 #include "Airbrake.h"
-#include <Servo.h>
+#include <Servo.h> //Arduino Library. The program neccessitates a 360 degree servo
 
 //initialized objects and references
 Ledger* ledger;
 Airbrake* airbrake;
 DataCollection* collector;
+Servo airbrakeServo;
 
 //Variables to assign closer to launch-day -------------------------------------
 float standardRotation = 5.f; //degrees of regular servo rotation while opening. adjust positive/negative to associated vector
@@ -29,11 +30,11 @@ unsigned long startingAltitude = 0ul;
 unsigned long startCoast = 0ul;
 unsigned long launchTime = 0ul;
 
+
 void setup() {
   Serial.begin(9600);
   Serial.println("ARC Team Falcon, system booting;");
 
-  Servo airbrakeServo;
   airbrakeServo.attach(0); //ataches Servo to pin 0
   airbrake = new Airbrake(standardRotation, airbrakeServo);
   
@@ -49,6 +50,7 @@ void setup() {
 }
 
 void loop() {
+  collector->collect();
   if (launched) {
     //ledger->addData(); data from sensors
   }
@@ -65,6 +67,7 @@ void loop() {
 }
 
 boolean coastPhase(){
+  collector->startCoast();
   float timeBurnout = millis();
   while (millis() - timeBurnout < coastTime) {
     ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast));

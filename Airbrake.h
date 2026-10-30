@@ -1,4 +1,4 @@
-#include <Servo.h> //assumes a 360 degree servo
+#include <Servo.h> //Arduino Library. The program neccessitates a 360 degree servo
 
 class Airbrake {
   private:

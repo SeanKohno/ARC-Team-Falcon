@@ -16,13 +16,19 @@ class Ledger {
       airbrakeChanges = new float[coast * collectionRate];
       collectedData = new float[flightCounter][3]; // 1, acceleration - 2, orientation - 3, barometer
     }
-
+    
+    //Returns the change in altitude caused by the most recent interval of airbrake deployment.
     float getRecentChange(){
-      if (changeIndex > 0 && changeIndex < coast * collectionRate) return airbrakeChanges[changeIndex - 1];
+      if (changeIndex > 0 && changeIndex < coast * collectionRate) {
+        float change = airbrakeChanges[changeIndex - 1];
+        Serial.println("Change: " + change);
+        return change;
+      }
       Serial.println("Either changeIndex = 0 or exceeds length of airbrakeChanges in getRecentChange");
       return aibrakeChanges[changeIndex - 1];
     }
-
+    
+    //Adds the most recent interval of change caused by airbrake to the data array
     void addChange(float change) {
       if (changeIndex < coast * collectionRate) {
         airbrakeChanges[changeIndex] = change;
@@ -31,7 +37,9 @@ class Ledger {
         Serial.println("addChange index exceeded at: " + String(millis()));
       }
     }
-
+    
+    //Accepts the acceleration, orientation, and air pressure values and 
+    // adds them to the respective index in data array
     void addData(float a, float o, float b){
       if (dataIndex < duration) {
         collectedData[dataIndex][0] = a;
@@ -41,7 +49,8 @@ class Ledger {
         dataIndex ++;
       }
     }
-  
+    
+    //Prints all flight data to the Serial monitor.
     void data(float startCoast, float launch, float boot, float collectionDelay){
       //introduction      
       Serial.println("ARC Team Falcon");

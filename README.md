@@ -35,8 +35,14 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
       - void deploy(float delay) deploys the airbrake for the delay time
       - void retract() retracts the airbrake. Uses servoDelay field variable.
         
-  DataCollection relays data to the Ledger, and maintains collection during delays.
-  - under construction
+DataCollection relays data to the Ledger, and maintains collection during delays.
+- Constructor:
+  - DataCollection(int frequency) sets the ideal data collection frequency to frequency.
+- Methods:
+  - int collectData(unsigned long wait)
+  - int strictStall(unsigned long wait)
+  - int airbrakeStall(unsigned long wait) 
+  - void startCoast(changeFrq) sets the coast starting time to the current time and the ideal airbrake altitude change collection rate to changeFrq.
 
 ---
 
