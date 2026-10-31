@@ -39,9 +39,9 @@ DataCollection relays data to the Ledger, and maintains collection during delays
 - Constructor:
   - DataCollection(int frequency) sets the ideal data collection frequency to frequency.
 - Methods:
-  - int collectData(unsigned long wait)
-  - int strictStall(unsigned long wait)
-  - int airbrakeStall(unsigned long wait) 
+  - int collectData() collects data IMU and Barometer data and reports it to the ledger
+  - int strictStall(unsigned long wait) runs data collection while delaying the rest of the program for wait time
+  - int airbrakeStall(unsigned long wait) runs data collection, including airbrake changes, while delaying the rest of the program for wait time
   - void startCoast(changeFrq) sets the coast starting time to the current time and the ideal airbrake altitude change collection rate to changeFrq.
 
 ---

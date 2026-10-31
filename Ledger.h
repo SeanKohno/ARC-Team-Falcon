@@ -46,7 +46,10 @@ class Ledger {
         collectedData[dataIndex][1] = o;
         collectedData[dataIndex][2] = b;
 
+        Serial.println("addData, data added");
         dataIndex ++;
+      } else  {
+        Serial.println("addData, dataIndex exceeds collectedData length");
       }
     }
     
