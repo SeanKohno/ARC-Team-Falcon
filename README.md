@@ -8,7 +8,7 @@ As this is an academic project, no AI is used in the creation of the codebase.
 NO Technical implementation details are accessible in the public version. 
 
 This repository hosts the avionics for the upcoming ARC Challenge in 2027 as a High-School competition. 
-This program is designed for amateur rocketry in unrestricted levels (pre class 1), and should not, nor is intended for, high power rocketry.
+This program is designed for amateur rocketry in unrestricted levels (class 1, pre level 1 of class 2), and should not, nor is intended for, high power rocketry.
 
 **THIS IS A PROTOTYPE, and the code is NOT YET operable**
 
