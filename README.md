@@ -10,6 +10,8 @@ NO Technical implementation details are accessible in the public version.
 This repository hosts the avionics for the upcoming ARC Challenge in 2027 as a High-School competition. 
 This program is designed for amateur rocketry in unrestricted levels (class 1, pre level 1 of class 2), and should not, nor is intended for, high power rocketry.
 
+There are NO guidance systems, only uniformly controlled airbrakes. These airbrakes are physically restricted from any level of control beyond airbrake usaged
+
 **THIS IS A PROTOTYPE, and the code is NOT YET operable**
 
 ---
