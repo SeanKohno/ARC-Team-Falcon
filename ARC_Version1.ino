@@ -16,6 +16,7 @@ int collectionRate = 1000; // number of coast-phase change collections
 int duration = 1000; // number of data collections after launch
 float collectionDelay = 100.f; //how many milliseconds between each collection that will be recorded
 float coastTime = 8.f; //delay before chute deployment
+int frequency = 100; //set to 100hz collection rate
 
 boolean launched = false;
 boolean burnout = false;
@@ -37,14 +38,14 @@ void setup() {
 
   airbrakeServo.attach(0); //ataches Servo to pin 0
   airbrake = new Airbrake(standardRotation, airbrakeServo);
-  
-  collector = new DataCollection();
 
   /*
     Attach IMU pins, Attach barometer pins
   */
   ledger = new Ledger(collectionRate, duration);
   bootTime = millis();
+  
+  collector = new DataCollection(ledger);
   //startingAltitude = barometricReadingAltitude;
   Serial.println("  System boot complete.");
 }
