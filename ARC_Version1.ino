@@ -30,6 +30,7 @@ unsigned long bootTime = 0ul;
 unsigned long startingAltitude = 0ul;
 unsigned long startCoast = 0ul;
 unsigned long launchTime = 0ul;
+float burnoutVelocity;
 
 
 void setup() {
@@ -53,7 +54,10 @@ void setup() {
 void loop() {
   collector->collect();
   if (launched) {
-    //ledger->addData(); data from sensors
+    if (collector.getAcceleration < 0) {
+      burnout = true;
+      burnoutVelocity = collector->velocity();
+    }
   }
   
   if (burnout) {
@@ -71,7 +75,7 @@ boolean coastPhase(){
   collector->startCoast();
   float timeBurnout = millis();
   while (millis() - timeBurnout < coastTime) {
-    ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast));
+    ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast, burnoutVelocity));
   }
   airbrake->deploy(10000, standardRotation); //final extension
   return false;

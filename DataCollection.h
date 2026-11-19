@@ -92,4 +92,8 @@ class DataCollection {
         startCoast = millis();
         Serial.println("Coast collection started at " + String(startCoast));
     }
+
+    float velocity(){
+        float maxAltitude = barometer.getAltitude() - startingAltitude;
+    }
 };

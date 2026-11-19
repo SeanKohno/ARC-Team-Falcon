@@ -8,6 +8,7 @@ class Airbrake {
     float previous = 0;
     float change;
     float standardRotation;
+    float burnoutVelocity;
 
     //assign near launch day---------------------------------------
     float target = 243.84; //meters
