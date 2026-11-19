@@ -39,7 +39,7 @@ Airbrake controls the actuation of airbrakes used to lower the velocity of the r
         
 DataCollection relays data to the Ledger, and maintains collection during delays.
 - Constructor:
-  - DataCollection(int frequency) sets the ideal data collection frequency to frequency.
+  - DataCollection(int frequency, Ledger ledger) sets the ideal data collection frequency to frequency and gains access to the ledger.
 - Methods:
   - int collectData() collects data IMU and Barometer data and reports it to the ledger
   - int strictStall(unsigned long wait) runs data collection while delaying the rest of the program for wait time
@@ -56,3 +56,4 @@ Given the absence of further known packages that will be used to collect data fr
 
 Hardcoded pin attachment is as followed, and designed for the Raspberry Pi Pico:
   - airbrakeServo: GPIO0 | The package used for the Servo assumes a 360 degree continuous rotation Servo
+  - Barometer sensor is designated as I2C and must conform with I2C standards
