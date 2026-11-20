@@ -37,8 +37,6 @@ void setup() {
   Serial.begin(9600);
   Serial.println("ARC Team Falcon, system booting;");
 
-  airbrakeServo.attach(0); //ataches Servo to pin 0
-  airbrake = new Airbrake(standardRotation, airbrakeServo);
 
   /*
     Attach IMU pins, Attach barometer pins
@@ -48,6 +46,10 @@ void setup() {
   
   collector = new DataCollection(ledger);
   //startingAltitude = barometricReadingAltitude;
+
+  airbrakeServo.attach(0); //ataches Servo to pin 0
+  airbrake = new Airbrake(standardRotation, airbrakeServo);
+
   Serial.println("  System boot complete.");
 }
 
@@ -75,7 +77,7 @@ boolean coastPhase(){
   collector->startCoast();
   float timeBurnout = millis();
   while (millis() - timeBurnout < coastTime) {
-    ledger->addChange(airbrake->deploy(*ledger, coastTime - millis() + startCoast, burnoutVelocity));
+    airbrake->deploy(coastTime - millis() + startCoast, velocity);
   }
   airbrake->deploy(10000, standardRotation); //final extension
   return false;

@@ -22,6 +22,11 @@
 #include <Adafruit_MPL3115A2.h> //barometer header
 #include "Ledger.h"
 
+//Necessary to determine the methods used, and will need to update after imu added
+//for default at this moment, using getAcceleration() and getOrientation(). Update those values 
+// after the fact through find-replace
+Imu imu;
+
 //returns 0 if successfully executed
 class DataCollection {
     private:
@@ -33,6 +38,14 @@ class DataCollection {
         Ledger ledger;
         float startingAltitude;
 
+        float currentVelocity = 0;
+        float currentAcceleration = 0;
+        float currentOrientation = 0;
+        float currentAltitude = 0;
+
+        float zeroOrientation;
+        float zeroAcceleration;
+
         Adafruit_MPL3115A2 barometer;
 
         int callLedger(){
@@ -43,10 +56,14 @@ class DataCollection {
     
     //includes initialization of collector means
     DataCollection(int frequency, Ledger temp){ //lowkey dont remember the original parameter I was going to pass in for frequency, though I think 100hz
+        imu = new ///add IMU later
+
         frequency = collectFrequency;
         ledger = temp;
         barometer.begin();
-        startingAltitude = barometer.;
+        startingAltitude = barometer.getAltitude();
+        zeroAcceleration = imu.getAcceleration();
+        zeroOrientation = imu.getOrientation();
 
         Serial.println("DataCollection initialized, at initial pressure of " + startingAltitude);
     }
@@ -54,7 +71,14 @@ class DataCollection {
     //collects IMU and barometric data
     int collectData(){
         int code = 0;
-        ledger.addData( , , barometer.getAltitude() - startingAltitude);
+        currentAltitude = barometer.getAltitude() - startingAltitude;
+        currentOrientation = imu.getOrientation() - zeroOrientation;
+        currentAcceleration = imu.getAcceleration() - zeroAcceleration;
+        
+        //creates a rough approximation using accelerometer, however REQUIRES that all intervals are present to be accurate
+        currentVelocity = currentAcceleration / frequency + currentVelocity;
+
+        ledger.addData(currentAcceleration , currentOrientation, currentAltitude);
         
         Serial.println("collectData executed with code: " + String(code));
         return code;
@@ -95,5 +119,9 @@ class DataCollection {
 
     float velocity(){
         float maxAltitude = barometer.getAltitude() - startingAltitude;
+    }
+
+    float returnVelocity(){
+        return currentVelocity;
     }
 };

@@ -17,8 +17,13 @@ class Airbrake {
 
     Servo airbrakeServo;
 
+    DataCollection collector;
+    Ledger ledger;
+
   public:
-    Airbrake(float rotation, Servo servo){
+    Airbrake(float rotation, Servo servo, DataCollection collect, Ledger ledg){
+      collector = collect; 
+      ledger = ledg;
       airbrakeServo = servo;
       standardRotation = rotation;
 
@@ -30,7 +35,9 @@ class Airbrake {
     }
 
 
-    int deploy(Ledger ledger, float remainingTime) {
+    int deploy(float remainingTime, float currentVelocity) {
+      velocity = currentVelocity;
+
       change = ledger.getRecentChange();
       if (velocity - change > target && (remainingTime / duration) * change < target){
         deploy(servoDelay, standardRotation); //adjust later for more precise airbrake control
